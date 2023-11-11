@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
 
@@ -20,7 +21,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			char c;
-			struct funcs_and_mods f_and_m;
 
 			c = format[i + 1];
 			if (c == '%')
@@ -30,8 +30,12 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				f_and_m = find_func(format, i + 1);
+				struct funcs_and_mods f_and_m;
+
+				f_and_m = get_func_and_mods(format, i + 1);
+				i += _strlen(f_and_m.mods);
 				bytes_printed += f_and_m.func(ap, f_and_m.mods);
+
 			}
 			i++;
 		}
@@ -48,6 +52,6 @@ int _printf(const char *format, ...)
 
 int main(void)
 {
-        _printf("abcd%+-c");
+        printf("%d\n", _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO"));
         return (0);
 }
