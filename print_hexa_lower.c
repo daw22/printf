@@ -15,7 +15,7 @@ int print_hexa_lower(va_list ap, char *mods)
 	char *hexa;
 
 	num = va_arg(ap, int);
-	(void *)mods;
+	mods = mods;
 	i = 0;
 	len = 0;
 	hexa = malloc(sizeof(char) * 1);

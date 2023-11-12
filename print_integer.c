@@ -1,44 +1,6 @@
 #include "main.h"
 
 /**
- * get_digits - Counts and returns the number of digits in a number
- * @n: The integer whose digits are counted
- *
- * Return: The number of digits of n
- */
-int get_digits(int n)
-{
-	int count;
-
-	count = 0;
-	do {
-		count++;
-		n /= 10;
-	} while (n != 0);
-	return (count);
-}
-
-/**
- * calc_power - Calculates and returns one number to the power of another
- * @base: The base
- * @exp: The exponent
- *
- * Return: base ^ exp or base ** exp
- */
-int calc_power(int base, int exp)
-{
-	int result;
-
-	result = 1;
-	while (exp > 0)
-	{
-		result *= base;
-		exp--;
-	}
-	return (result);
-}
-
-/**
  * print_integer - Prints an integer using only _putchar
  * @ap: The argument pointer pointing to the int to be printed
  * @mods: The modifiers in the format string
@@ -53,9 +15,11 @@ int print_integer(va_list ap, char *mods)
 	int i;
 	unsigned int sign;
 	int curr_digit;
+	void *p;
 
 	n = va_arg(ap, int);
-	(void *)mods;
+	p = (void *)mods;
+	p = p;
 	sign = 0;
 	if (n < 0)
 	{

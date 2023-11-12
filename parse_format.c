@@ -87,17 +87,18 @@ int (*get_func(const char *format, int ind))(va_list, char *)
 {
 	int (*func)(va_list, char *);
 	int i;
-	struct types_and_funcs t_and_f[] = {
+	T_and_F t_and_f[] = {
 		{'c', print_char},
 		{'s', print_string},
 		{'b', print_binary},
 		{'d', print_integer},
+		{'i', print_octal_hexa},
 		{'x', print_hexa_lower},
 		{'X', print_hexa_upper}
 	};
 
 	i = 0;
-	while (i < 6)
+	while (i < 7)
 	{
 		if (format[ind] == t_and_f[i].spec)
 		{

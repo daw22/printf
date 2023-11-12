@@ -53,8 +53,10 @@ int _printf(const char *format, ...)
  *{
  *	_printf("%c%c%c %s = %d\nLet's try %s %d = %x =  * %X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123);
  *	_printf("%c%c%c %s = %d\nLet's try %s %d = %x = %*X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123);
- *	_printf("%b", 98);
- *
- *	  return (0);	 
+ *	_printf("%b\n", 98);
+ *	_printf("%d\n", 150);
+ *	_printf("%i\n", 012);
+ *       _printf("%i\n", 0x2D);	
+ *	return (0);	 
  *}
  **/ 

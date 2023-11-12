@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_hexa_lower - Prints the hexa form of a number arg
+ * print_hexa_upper - Prints the hexa form of a number arg
  * @ap: The argument pointer pointing to the number to be printed in hexa
  * @mods: The modifiers given in the format string of _printf
  *
@@ -15,7 +15,7 @@ int print_hexa_upper(va_list ap, char *mods)
 	char *hexa;
 
 	num = va_arg(ap, int);
-	(void *)mods;
+	mods = mods;
 	i = 0;
 	len = 0;
 	hexa = malloc(sizeof(char) * 1);
