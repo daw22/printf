@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -8,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, bytes_printed = 0;
+	int i = 0, b_printed = 0;
 	va_list ap;
 
 	va_start(ap, format);
@@ -21,8 +22,7 @@ int _printf(const char *format, ...)
 			c = format[i + 1];
 			if (c == '%')
 			{
-				_putchar('%');
-				bytes_printed += 1;
+				b_printed += _putchar('%');
 			}
 			else
 			{
@@ -30,33 +30,31 @@ int _printf(const char *format, ...)
 
 				f_and_m = get_func_and_mods(format, i + 1);
 				i += _strlen(f_and_m.mods);
-				bytes_printed += f_and_m.func(ap, f_and_m.mods);
+				b_printed += f_and_m.func(ap, f_and_m.mods);
 				if (f_and_m.func == null_func)
 				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
+					b_printed += _putchar(format[i]);
+					b_printed += _putchar(format[i + 1]);
 				}
 			}
 			i++;
 		}
 		else
 		{
-			_putchar(format[i]);
-			bytes_printed += 1;
+			b_printed += _putchar(format[i]);
 		}
 		i++;
 	}
 	va_end(ap);
-	return (bytes_printed);
+	return (b_printed);
 }
 /**
-*int main(void)
-*{
-*       _printf("%d\n", _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO"));
-*        _printf("%d\n", _printf("ab%%cd%+-kBC%sD\n", "HELLO"));
-*	_printf("%+-.k: asdf\n");
-*	_printf("%k\n", 5);
-*	_printf("123%-+c::%..s::\n", '4', "567");
-*        return (0);
-*}
-**/
+ *int main(void)
+ *{
+ *	printf("%d\n", _printf("ABCD%vEFG"));
+ *	printf("%d\n", printf("ABCD%vEFG"));
+ *        printf("%d\n", _printf("ab%%cd%+-kBC%sD\n", "HELLO"));
+ *	printf("%d\n", printf("ab%%cd%+-kBC%sD\n", "HELLO"));
+ *      return (0);
+ *}
+ */
