@@ -49,6 +49,7 @@ char *extract_mods(const char *format, int *ind_ptr)
 {
 	char valid_mods[] = "+-.";
 	char valid_specs[] = "csb";
+	char valid_specs[] = "csx";
 	char *curr_mods = "";
 	int i;
 	int j;
@@ -91,10 +92,13 @@ int (*get_func(const char *format, int ind))(va_list, char *)
 		{'c', print_char},
 		{'s', print_string},
 		{'b', print_binary}
+		{'d', print_integer},
+		{'x', print_hexa_lower},
+		{'X', print_hexa_upper}
 	};
 
 	i = 0;
-	while (i < 3)
+	while (i < 5)
 	{
 		if (format[ind] == t_and_f[i].spec)
 		{
