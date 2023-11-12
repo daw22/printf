@@ -1,21 +1,17 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
- * _printf
+ * _printf - custom implementation of c printf function
+ * @format: format string
  *
- * Return:
+ * Return: number of bytes printed (int)
  */
 int _printf(const char *format, ...)
 {
-	int bytes_printed;
+	int i = 0, bytes_printed = 0;
 	va_list ap;
-	int i;
 
 	va_start(ap, format);
-	bytes_printed = 0;
-	i = 0;
 	while (format[i] && format != NULL)
 	{
 		if (format[i] == '%')
@@ -35,7 +31,11 @@ int _printf(const char *format, ...)
 				f_and_m = get_func_and_mods(format, i + 1);
 				i += _strlen(f_and_m.mods);
 				bytes_printed += f_and_m.func(ap, f_and_m.mods);
-
+				if (f_and_m.func == null_func)
+				{
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+				}
 			}
 			i++;
 		}
@@ -49,9 +49,14 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (bytes_printed);
 }
-
-int main(void)
-{
-        printf("%d\n", _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO"));
-        return (0);
-}
+/**
+*int main(void)
+*{
+*       _printf("%d\n", _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO"));
+*        _printf("%d\n", _printf("ab%%cd%+-kBC%sD\n", "HELLO"));
+*	_printf("%+-.k: asdf\n");
+*	_printf("%k\n", 5);
+*	_printf("123%-+c::%..s::\n", '4', "567");
+*        return (0);
+*}
+**/
