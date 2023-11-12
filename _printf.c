@@ -48,13 +48,11 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (b_printed);
 }
+
 /**
  *int main(void)
  *{
- *	printf("%d\n", _printf("ABCD%vEFG"));
- *	printf("%d\n", printf("ABCD%vEFG"));
- *        printf("%d\n", _printf("ab%%cd%+-kBC%sD\n", "HELLO"));
- *	printf("%d\n", printf("ab%%cd%+-kBC%sD\n", "HELLO"));
- *      return (0);
+ *	printf("%d\n", _printf("%c%c%c %s = %d\n", 'T', 'h', 'e', "num"*, -12345));
+ *	return (0);
  *}
  */

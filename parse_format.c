@@ -89,11 +89,12 @@ int (*get_func(const char *format, int ind))(va_list, char *)
 	int i;
 	struct types_and_funcs t_and_f[] = {
 		{'c', print_char},
-		{'s', print_string}
+		{'s', print_string},
+		{'d', print_integer}
 	};
 
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		if (format[ind] == t_and_f[i].spec)
 		{
