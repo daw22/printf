@@ -48,7 +48,7 @@ struct funcs_and_mods get_func_and_mods(const char *format, int ind)
 char *extract_mods(const char *format, int *ind_ptr)
 {
 	char valid_mods[] = "+-.";
-	char valid_specs[] = "csxb";
+	char valid_specs[] = "csdbxXf";
 	char *curr_mods = "";
 	int i;
 	int j;
@@ -94,11 +94,12 @@ int (*get_func(const char *format, int ind))(va_list, char *)
 		{'d', print_integer},
 		{'i', print_octal_hexa},
 		{'x', print_hexa_lower},
-		{'X', print_hexa_upper}
+		{'X', print_hexa_upper},
+		{'f', print_float}
 	};
 
 	i = 0;
-	while (i < 7)
+	while (i < 8)
 	{
 		if (format[ind] == t_and_f[i].spec)
 		{
