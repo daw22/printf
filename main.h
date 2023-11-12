@@ -17,6 +17,7 @@ char *extract_mods(const char *, int *);
 int (* get_func(const char *, int))(va_list, char *);
 int print_char(va_list, char *);
 int print_string(va_list, char *);
+int print_binary(va_list, char *);
 int null_func(va_list, char *);
 
 /** structs **/

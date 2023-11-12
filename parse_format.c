@@ -48,7 +48,7 @@ struct funcs_and_mods get_func_and_mods(const char *format, int ind)
 char *extract_mods(const char *format, int *ind_ptr)
 {
 	char valid_mods[] = "+-.";
-	char valid_specs[] = "cs";
+	char valid_specs[] = "csb";
 	char *curr_mods = "";
 	int i;
 	int j;
@@ -89,11 +89,12 @@ int (*get_func(const char *format, int ind))(va_list, char *)
 	int i;
 	struct types_and_funcs t_and_f[] = {
 		{'c', print_char},
-		{'s', print_string}
+		{'s', print_string},
+		{'b', print_binary}
 	};
 
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		if (format[ind] == t_and_f[i].spec)
 		{

@@ -49,14 +49,17 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (bytes_printed);
 }
-/**
-*int main(void)
-*{
-*       _printf("%d\n", _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO"));
-*        _printf("%d\n", _printf("ab%%cd%+-kBC%sD\n", "HELLO"));
-*	_printf("%+-.k: asdf\n");
-*	_printf("%k\n", 5);
-*	_printf("123%-+c::%..s::\n", '4', "567");
-*        return (0);
-*}
-**/
+
+int main(void)
+{
+        _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO");
+	_printf("%k\n", 5);
+	_printf("123%-+c::%..s::\n", '4', "567");
+	_printf("%-.ms\n");
+	_printf("Value of num using %%d is = %c\n", '5');
+	_printf("Let's try print a simple sentence\n");
+	_printf("binary rep of 98 is: %b\n", 98);
+	_printf("%_+.nb::bin > 98 > %b\n", 98);
+        return (0);
+}
+
