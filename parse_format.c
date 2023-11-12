@@ -10,8 +10,11 @@
  */
 int null_func(va_list ap, char *mod)
 {
+	char c;
+
 	ap = ap;
-	mod;
+	c = mod[0];
+	c = c;
 	return (0);
 }
 
