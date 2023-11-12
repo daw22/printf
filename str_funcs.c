@@ -44,3 +44,30 @@ char *_strchr(char *str, char c)
 	}
 	return (NULL);
 }
+
+/**
+ * reverse_string - Returns the reverse of a given string
+ * @s: The string to be reversed
+ *
+ * Return: The reversed string
+ */
+char *reverse_string(char *s)
+{
+	char* rev;
+	int len, i, j;
+
+	len = _strlen(s);
+	rev = malloc(sizeof(char) * (len + 1));
+	j = 0;
+	if (rev != NULL)
+	{
+		for (i = len - 1; i >= 0; i--)
+		{
+			rev[j] = s[i];
+			j++;
+		}
+		rev[j] = '\0';
+		free(s);
+	}
+	return (rev);
+}

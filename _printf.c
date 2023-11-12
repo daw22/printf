@@ -52,7 +52,8 @@ int _printf(const char *format, ...)
 /**
  *int main(void)
  *{
- *	printf("%d\n", _printf("%c%c%c %s = %d\n", 'T', 'h', 'e', "num"*, -12345));
+ *	printf("%d\n", _printf("%c%c%c %s = %d\nLet's try %s %d = %x =  * %X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123));
+ *	printf("%d\n", printf("%c%c%c %s = %d\nLet's try %s %d = %x = %*X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123));
  *	return (0);
  *}
  */
