@@ -53,7 +53,7 @@ char *_strchr(char *str, char c)
  */
 char *reverse_string(char *s)
 {
-	char* rev;
+	char *rev;
 	int len, i, j;
 
 	len = _strlen(s);

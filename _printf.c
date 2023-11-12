@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -49,27 +48,13 @@ int _printf(const char *format, ...)
 	return (b_printed);
 }
 
-<<<<<<< HEAD
-int main(void)
-{
-        _printf("ab%%cd%+-cBC%sD\n", 'A', "HELLO");
-	_printf("%k\n", 5);
-	_printf("123%-+c::%..s::\n", '4', "567");
-	_printf("%-.ms\n");
-	_printf("Value of num using %%d is = %c\n", '5');
-	_printf("Let's try print a simple sentence\n");
-	_printf("binary rep of 98 is: %b\n", 98);
-	_printf("%_+.nb::bin > 98 > %b\n", 98);
-        return (0);
-}
-
-=======
 /**
  *int main(void)
  *{
- *	printf("%d\n", _printf("%c%c%c %s = %d\nLet's try %s %d = %x =  * %X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123));
- *	printf("%d\n", printf("%c%c%c %s = %d\nLet's try %s %d = %x = %*X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123));
- *	return (0);
+ *	_printf("%c%c%c %s = %d\nLet's try %s %d = %x =  * %X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123);
+ *	_printf("%c%c%c %s = %d\nLet's try %s %d = %x = %*X\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123);
+ *	_printf("%b", 98);
+ *
+ *	  return (0);	 
  *}
- */
->>>>>>> 54726f44239842a10513cd919e9b6cb3c0464d6a
+ **/ 
