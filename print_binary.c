@@ -40,10 +40,9 @@ int print_binary(va_list ap, char *mods)
 			str[i] = (un % 2) + '0';
 			un = un / 2;
 		}
+		for (i = 0; i < len; i++)
+			_putchar(str[i]);
 	}
-
-	for (i = 0; i < len; i++)
-		_putchar(str[i]);
 	free(str);
 	return (allocated ? len : 0);
 }
