@@ -47,3 +47,8 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (b_printed);
 }
+
+int main(void)
+{
+	_printf("%d\n", _printf("%s = %r\n", NULL, NULL));
+}
