@@ -11,8 +11,8 @@ int print_rev_string(va_list ap, char *mods)
 {
 	int len, i;
 	char *s = va_arg(ap, char *);
-	mods = mods;
 
+	mods = mods;
 	if (s == NULL)
 	{
 		s = ")llun(";

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_rev_string - Prints a string arg in reverse
+ * print_rot13_string - Prints a string arg in rot13 encoding
  * @ap: The argument pointer pointing to the string to be printed
  * @mods: The modifiers extracted from the format string
  *

@@ -30,6 +30,7 @@ int print_float(va_list, char *);
 int print_binary(va_list, char *);
 int print_octal_hexa(va_list, char *);
 int print_octal(va_list, char *);
+int print_neg_octal(int);
 int print_rev_string(va_list, char *);
 int print_rot13_string(va_list, char *);
 int null_func(va_list, char *);

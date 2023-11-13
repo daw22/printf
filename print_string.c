@@ -25,10 +25,10 @@ int print_string(va_list ap, char *mod)
 	}
 	len = 0;
 	while (*ptr)
-       	{
-       		_putchar(*ptr);
-	       	ptr++;
-	       	len++;
+	{
+		_putchar(*ptr);
+		ptr++;
+		len++;
 	}
 	return (len);
 }

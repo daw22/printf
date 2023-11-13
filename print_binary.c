@@ -20,7 +20,7 @@ int print_binary(va_list ap, char *mods)
 
 	n = va_arg(ap, unsigned int);
 	if (n < 0)
-		un = n * - 1;
+		un = n * -1;
 	else
 		un = n;
 	tmp = un;
