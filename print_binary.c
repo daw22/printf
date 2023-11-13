@@ -9,8 +9,7 @@
  */
 int print_binary(va_list ap, char *mods)
 {
-	int n;
-	unsigned int un, i, tmp, len;
+	unsigned int n, i, tmp, len;
 	char *str;
 	/** until handling modifiers **/
 	char c = mods[0];
@@ -19,11 +18,7 @@ int print_binary(va_list ap, char *mods)
 	/** **/
 
 	n = va_arg(ap, unsigned int);
-	if (n < 0)
-		un = n * - 1;
-	else
-		un = n;
-	tmp = un;
+	tmp = n;
 	len = 1;
 	while (tmp / 2)
 	{
@@ -34,10 +29,10 @@ int print_binary(va_list ap, char *mods)
 	str = malloc(sizeof(char) * len + 1);
 	if (str)
 	{
-		for (i = len - 1; un > 0; i--)
+		for (i = len - 1; n > 0; i--)
 		{
-			str[i] = (un % 2) + '0';
-			un = un / 2;
+			str[i] = (n % 2) + '0';
+			n = n / 2;
 		}
 	}
 
