@@ -28,6 +28,7 @@ int print_hexa_upper(va_list, char *);
 int print_float(va_list, char *);
 int print_binary(va_list, char *);
 int print_octal_hexa(va_list, char *);
+int print_octal(va_list, char *);
 int null_func(va_list, char *);
 
 /** structs **/

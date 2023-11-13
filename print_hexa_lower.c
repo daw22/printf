@@ -18,6 +18,11 @@ int print_hexa_lower(va_list ap, char *mods)
 	mods = mods;
 	i = 0;
 	len = 0;
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	hexa = malloc(sizeof(char) * 1);
 	while (num > 0)
 	{
