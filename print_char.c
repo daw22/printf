@@ -16,6 +16,5 @@ int print_char(va_list ap, char *mod)
 	{
 		free(mod);
 	}
-	_putchar(c);
-	return (1);
+	return (_putchar(c));
 }
