@@ -14,6 +14,10 @@ int print_string(va_list ap, char *mod)
 	int len;
 
 	s = va_arg(ap, char *);
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
 	ptr = s;
 	if (_strlen(mod))
 	{
@@ -28,6 +32,10 @@ int print_string(va_list ap, char *mod)
 			ptr++;
 			len++;
 		}
+	}
+	else
+	{
+		exit(139);
 	}
 	return (len);
 }
