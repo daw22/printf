@@ -23,20 +23,27 @@ int print_hexa_upper(va_list ap, char *mods)
 		_putchar('0');
 		return (1);
 	}
-	hexa = malloc(sizeof(char) * 1);
-	while (num > 0)
+	if (num < 0)
 	{
-		hexa[i] = hexa_digits[num % 16];
-		num /= 16;
-		i++;
-		len++;
-		hexa = _realloc(hexa, i, i + 1);
+		return (print_neg_hexa(-1 * num, hexa_digits));
 	}
-	hexa[i] = '\0';
-	hexa = reverse_string(hexa);
-	for (i = 0; i < len; i++)
+	hexa = malloc(sizeof(char) * 1);
+	if (hexa != NULL)
 	{
-		_putchar(hexa[i]);
+		while (num > 0)
+		{
+			hexa[i] = hexa_digits[num % 16];
+			num /= 16;
+			i++;
+			len++;
+			hexa = _realloc(hexa, i, i + 1);
+		}
+		hexa[i] = '\0';
+		hexa = reverse_string(hexa);
+		for (i = 0; i < len; i++)
+		{
+			_putchar(hexa[i]);
+		}
 	}
 	free(hexa);
 	return (len);

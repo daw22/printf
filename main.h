@@ -24,6 +24,7 @@ int print_string(va_list, char *);
 int print_integer(va_list, char *);
 int print_unsigned_int(va_list, char *);
 int print_hexa_lower(va_list, char *);
+int print_neg_hexa(int, char *);
 int print_hexa_upper(va_list, char *);
 int print_float(va_list, char *);
 int print_binary(va_list, char *);
