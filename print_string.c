@@ -24,18 +24,11 @@ int print_string(va_list ap, char *mod)
 		free(mod);
 	}
 	len = 0;
-	if (s != NULL)
+	while (*ptr)
 	{
-		while (*ptr)
-		{
-			_putchar(*ptr);
-			ptr++;
-			len++;
-		}
-	}
-	else
-	{
-		exit(139);
+		_putchar(*ptr);
+		ptr++;
+		len++;
 	}
 	return (len);
 }

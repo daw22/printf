@@ -18,20 +18,32 @@ int print_hexa_upper(va_list ap, char *mods)
 	mods = mods;
 	i = 0;
 	len = 0;
-	hexa = malloc(sizeof(char) * 1);
-	while (num > 0)
+	if (num == 0)
 	{
-		hexa[i] = hexa_digits[num % 16];
-		num /= 16;
-		i++;
-		len++;
-		hexa = _realloc(hexa, i, i + 1);
+		_putchar('0');
+		return (1);
 	}
-	hexa[i] = '\0';
-	hexa = reverse_string(hexa);
-	for (i = 0; i < len; i++)
+	if (num < 0)
 	{
-		_putchar(hexa[i]);
+		return (print_neg_hexa(-1 * num, hexa_digits));
+	}
+	hexa = malloc(sizeof(char) * 1);
+	if (hexa != NULL)
+	{
+		while (num > 0)
+		{
+			hexa[i] = hexa_digits[num % 16];
+			num /= 16;
+			i++;
+			len++;
+			hexa = _realloc(hexa, i, i + 1);
+		}
+		hexa[i] = '\0';
+		hexa = reverse_string(hexa);
+		for (i = 0; i < len; i++)
+		{
+			_putchar(hexa[i]);
+		}
 	}
 	free(hexa);
 	return (len);
