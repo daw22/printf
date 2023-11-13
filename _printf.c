@@ -47,14 +47,3 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (b_printed);
 }
-
-/**
- *int main(void)
- *{
- *	printf("%d\n", printf("%c%c%c %s = %d\nLet's try %s %d = %x = %X\nLet's try %s %f\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123, "float", 1234.5678));
- *	_printf("%d\n", _printf("%c%c%c %s = %d\nLet's try %s %d = %x = %X\nLet's try %s %f\n", 'T', 'h', 'e', "num", -12345, "Hexa", 123, 123, 123, "float", 1234.5678));
- *	_printf("%b", 98);
- *
- *	  return (0);
- *}
- **/

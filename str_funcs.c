@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -81,15 +80,15 @@ char *reverse_string(char *s)
  */
 int calc_power(int base, int exp)
 {
-        int result;
+	int result;
 
-        result = 1;
-        while (exp > 0)
-        {
-                result *= base;
-                exp--;
-        }
-        return (result);
+	result = 1;
+	while (exp > 0)
+	{
+		result *= base;
+		exp--;
+	}
+	return (result);
 }
 
 /**

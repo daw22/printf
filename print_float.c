@@ -20,32 +20,32 @@ int print_float(va_list ap, char *mods)
 	unsigned int point;
 
 	n = (va_arg(ap, double) * calc_power(10, deci_digits + 1) + 5) / 10;
-        (void *)mods;
-        sign = 0;
-        if (n < 0)
-        {
-                _putchar('-');
-                sign += 1;
-                num = n * -1;
-        }
-        else
-        {
-                num = +n;
-        }
+	mods = mods;
+	sign = 0;
+	if (n < 0)
+	{
+		_putchar('-');
+		sign += 1;
+		num = n * -1;
+	}
+	else
+	{
+		num = +n;
+	}
 	point = 0;
 	if (deci_digits > 0)
 	{
 		point++;
 	}
-        digits = get_digits(num);
-        for (i = digits - 1; i >= 0; i--)
-        {
+	digits = get_digits(num);
+	for (i = digits - 1; i >= 0; i--)
+	{
 		if (i == deci_digits - 1)
 		{
 			_putchar('.');
 		}
-                curr_digit = (num / calc_power(10, i)) % 10;
-                _putchar('0' + curr_digit);
-        }
-        return (digits + sign + point);
+		curr_digit = (num / calc_power(10, i)) % 10;
+		_putchar('0' + curr_digit);
+	}
+	return (digits + sign + point);
 }
