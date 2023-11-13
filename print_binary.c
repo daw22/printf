@@ -25,13 +25,18 @@ int print_binary(va_list ap, char *mods)
 		un = n;
 	tmp = un;
 	len = 1;
+	if (un == 0)
+	{
+		_putchar('0');
+		return (len);
+	}
 	while (tmp / 2)
 	{
 		len++;
 		tmp /= 2;
 	}
 
-	str = malloc(sizeof(char) * len + 1);
+	str = malloc(sizeof(char) * (len + 1));
 	if (str != NULL)
 	{
 		for (i = len - 1; un > 0; i--)
