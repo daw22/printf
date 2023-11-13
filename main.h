@@ -32,7 +32,7 @@ int null_func(va_list, char *);
 
 /**
  * struct types_and_funcs - represents a specifier and its handler
- * 
+ *
  * @spec: the format specifier
  * @func: pointer to the handler function
  *
