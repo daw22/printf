@@ -29,5 +29,9 @@ int print_string(va_list ap, char *mod)
 			len++;
 		}
 	}
+	else
+	{
+		exit(139);
+	}
 	return (len);
 }
