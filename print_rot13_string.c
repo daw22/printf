@@ -14,6 +14,7 @@ int print_rot13_string(va_list ap, char *mods)
 	char *rot = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *s = va_arg(ap, char *);
 
+	mods = mods;
 	if (s == NULL)
 	{
 		s = "(ahyy)";
