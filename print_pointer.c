@@ -1,6 +1,21 @@
 #include "main.h"
 
 /**
+ * print_nil - prints (nil)
+ * Return: 5
+ */
+int print_nil(void)
+{
+	char *p = "(nil)";
+
+	while (*p)
+	{
+		_putchar(*p);
+		p++;
+	}
+	return (5);
+}
+/**
  * print_pointer - prints memory address in hexadeciaml
  * @ap: va_list
  * @mods: format modifiers
@@ -16,6 +31,10 @@ int print_pointer(va_list ap, char *mods)
 
 	mods = mods;
 	add = va_arg(ap, void *);
+	if (add == NULL)
+	{
+		return (print_nil());
+	}
 	num = (long int) add;
 	tmp = num;
 	while (tmp / 16)
