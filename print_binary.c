@@ -11,7 +11,7 @@
  */
 int print_binary(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
-	unsigned int un, i, tmp, len, allocated = 0;
+	unsigned int n, i, tmp, len;
 	char *str;
 	/** until handling modifiers **/
 	char c = mods[0];
@@ -19,10 +19,10 @@ int print_binary(va_list ap, char *mods, char *buffer, int *len_ptr)
 	c = c;
 	/** **/
 
-	un = va_arg(ap, unsigned int);
-	tmp = un;
+	n = va_arg(ap, unsigned int);
+	tmp = n;
 	len = 1;
-	if (un == 0)
+	if (n == 0)
 	{
 		add_to_buffer('0', buffer, len_ptr);
 		return (len);
@@ -33,18 +33,17 @@ int print_binary(va_list ap, char *mods, char *buffer, int *len_ptr)
 		tmp /= 2;
 	}
 
-	str = malloc(sizeof(char) * (len + 1));
-	if (str != NULL)
+	str = malloc(sizeof(char) * len + 1);
+	if (str)
 	{
-		allocated = 1;
-		for (i = len - 1; un > 0; i--)
+		for (i = len - 1; n > 0; i--)
 		{
-			str[i] = (un % 2) + '0';
-			un = un / 2;
+			str[i] = (n % 2) + '0';
+			n = n / 2;
 		}
 		for (i = 0; i < len; i++)
 			add_to_buffer(str[i], buffer, len_ptr);
 	}
 	free(str);
-	return (allocated ? len : 0);
+	return (len);
 }

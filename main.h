@@ -37,6 +37,8 @@ int print_neg_octal(int, char *, int *);
 int print_rev_string(va_list, char *, char *, int *);
 int print_rot13_string(va_list, char *, char *, int *);
 int null_func(va_list, char *, char *, int *);
+int print_pointer(va_list, char *, char *, int *);
+int null_func(va_list, char *);
 
 /** structs **/
 
