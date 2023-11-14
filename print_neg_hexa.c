@@ -4,10 +4,12 @@
  * print_neg_hexa - Prints a negative number in hexa
  * @num: The negative number to print
  * @digits: The hexa digits either in uppercase or lowercase
+ * @buffer: The buffer to store the characters until printing
+ * @len_ptr: A pointer to an int holding the number of chars in buffer
  *
  * Return: The number of bytes printed (8 for now)
  */
-int print_neg_hexa(int num, char *digits)
+int print_neg_hexa(int num, char *digits, char *buffer, int *len_ptr)
 {
 	int pow = 0;
 	int len = 0;
@@ -30,7 +32,7 @@ int print_neg_hexa(int num, char *digits)
 		allocated += 1;
 		for (i = 0; i < (8 - len); i++)
 		{
-			_putchar(digits[15]);
+			add_to_buffer(digits[15], buffer, len_ptr);
 		}
 		i = 0;
 		while (num > 0)
@@ -43,7 +45,7 @@ int print_neg_hexa(int num, char *digits)
 		hexa = reverse_string(hexa);
 		for (i = 0; i < len; i++)
 		{
-			_putchar(hexa[i]);
+			add_to_buffer(hexa[i], buffer, len_ptr);
 		}
 	}
 	free(hexa);

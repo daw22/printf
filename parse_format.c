@@ -5,13 +5,17 @@
  * null_func - does nothing
  * @ap: va_list
  * @mod: modifiers
+ * @buffer: Buffer for the chars to print
+ * @len_ptr: Pointer to an int holding the number of chars in buffer
  *
  * Return: 0 Always
  */
-int null_func(va_list ap, char *mod)
+int null_func(va_list ap, char *mod, char *buffer, int *len_ptr)
 {
 	char c;
 
+	(void) buffer;
+	(void) len_ptr;
 	ap = ap;
 	c = mod[0];
 	c = c;
@@ -83,9 +87,9 @@ char *extract_mods(const char *format, int *ind_ptr)
  *
  * Return: pointer to handler function
  */
-int (*get_func(const char *format, int ind))(va_list, char *)
+int (*get_func(const char *format, int ind))(va_list, char *, char *, int *)
 {
-	int (*func)(va_list, char *);
+	int (*func)(va_list, char *, char *, int *);
 	int i;
 	T_and_F t_and_f[] = {
 		{'c', print_char},

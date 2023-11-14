@@ -4,10 +4,12 @@
  * print_string - prints string
  * @ap: va_list
  * @mod: modifiers
+ * @buffer: Buffer for the chars to print
+ * @len_ptr: Pointer to an int holding the number of chars in buffer
  *
  * Return: number of chars printed
  */
-int print_string(va_list ap, char *mod)
+int print_string(va_list ap, char *mod, char *buffer, int *len_ptr)
 {
 	char *s;
 	char *ptr;
@@ -26,7 +28,7 @@ int print_string(va_list ap, char *mod)
 	len = 0;
 	while (*ptr)
 	{
-		_putchar(*ptr);
+		add_to_buffer(*ptr, buffer, len_ptr);
 		ptr++;
 		len++;
 	}

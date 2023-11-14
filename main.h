@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
 
@@ -12,28 +13,30 @@ char *reverse_string(char *);
 void *_realloc(void *, unsigned int, unsigned int);
 int calc_power(int, int);
 int get_digits(int);
+int add_to_buffer(char, char *, int *);
+int print_buffer(char *, int);
 
 /** prototypes **/
 int _putchar(char);
 struct funcs_and_mods find_func(const char *, int);
 struct funcs_and_mods get_func_and_mods(const char *, int);
 char *extract_mods(const char *, int *);
-int (* get_func(const char *, int))(va_list, char *);
-int print_char(va_list, char *);
-int print_string(va_list, char *);
-int print_integer(va_list, char *);
-int print_unsigned_int(va_list, char *);
-int print_hexa_lower(va_list, char *);
-int print_neg_hexa(int, char *);
-int print_hexa_upper(va_list, char *);
-int print_float(va_list, char *);
-int print_binary(va_list, char *);
-int print_octal_hexa(va_list, char *);
-int print_octal(va_list, char *);
-int print_neg_octal(int);
-int print_rev_string(va_list, char *);
-int print_rot13_string(va_list, char *);
-int null_func(va_list, char *);
+int (* get_func(const char *, int))(va_list, char *, char *, int *);
+int print_char(va_list, char *, char *, int *);
+int print_string(va_list, char *, char *, int *);
+int print_integer(va_list, char *, char *, int *);
+int print_unsigned_int(va_list, char *, char *, int *);
+int print_hexa_lower(va_list, char *, char *, int *);
+int print_neg_hexa(int, char *, char *, int *);
+int print_hexa_upper(va_list, char *, char *, int *);
+int print_float(va_list, char *, char *, int *);
+int print_binary(va_list, char *, char *, int *);
+int print_octal_hexa(va_list, char *, char *, int *);
+int print_octal(va_list, char *, char *, int *);
+int print_neg_octal(int, char *, int *);
+int print_rev_string(va_list, char *, char *, int *);
+int print_rot13_string(va_list, char *, char *, int *);
+int null_func(va_list, char *, char *, int *);
 
 /** structs **/
 
@@ -49,7 +52,7 @@ int null_func(va_list, char *);
 struct types_and_funcs
 {
 	char spec;
-	int (*func)(va_list, char *);
+	int (*func)(va_list, char *, char *, int *);
 };
 typedef struct types_and_funcs T_and_F;
 /**
@@ -63,7 +66,7 @@ typedef struct types_and_funcs T_and_F;
  */
 struct funcs_and_mods
 {
-	int (*func)(va_list, char *);
+	int (*func)(va_list, char *, char *, int *);
 	char *mods;
 };
 

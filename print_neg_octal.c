@@ -3,10 +3,12 @@
 /**
  * print_neg_octal - Prints a negative number in octal
  * @num: The negative number to print
+ * @buffer: The buffer to store the characters until printing
+ * @len_ptr: A pointer to an int holding the number of chars in buffer
  *
  * Return: The number of bytes printed (8 for now)
  */
-int print_neg_octal(int num)
+int print_neg_octal(int num, char *buffer, int *len_ptr)
 {
 	int pow = 0;
 	int len = 0;
@@ -27,10 +29,10 @@ int print_neg_octal(int num)
 	if (octal != NULL)
 	{
 		allocated += 1;
-		_putchar('3');
+		add_to_buffer('3', buffer, len_ptr);
 		for (i = 0; i < (10 - len); i++)
 		{
-			_putchar(octal_digits[7]);
+			add_to_buffer(octal_digits[7], buffer, len_ptr);
 		}
 		i = 0;
 		while (num > 0)
@@ -43,7 +45,7 @@ int print_neg_octal(int num)
 		octal = reverse_string(octal);
 		for (i = 0; i < len; i++)
 		{
-			_putchar(octal[i]);
+			add_to_buffer(octal[i], buffer, len_ptr);
 		}
 	}
 	free(octal);

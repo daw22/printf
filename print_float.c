@@ -4,10 +4,12 @@
  * print_float - Prints a float arg to stdout
  * @ap: The argument pointer pointing to the float to print
  * @mods: The modifiers in the format specifier string
+ * @buffer: Buffer for the chars to print
+ * @len_ptr: Pointer to an int holding the number of chars in buffer
  *
  * Return: The number of bytes printed
  */
-int print_float(va_list ap, char *mods)
+int print_float(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
 	int deci_digits = 6;
 	int n;
@@ -23,7 +25,7 @@ int print_float(va_list ap, char *mods)
 	sign = 0;
 	if (n < 0)
 	{
-		_putchar('-');
+		add_to_buffer('-', buffer, len_ptr);
 		sign += 1;
 		num = n * -1;
 	}
@@ -41,10 +43,10 @@ int print_float(va_list ap, char *mods)
 	{
 		if (i == deci_digits - 1)
 		{
-			_putchar('.');
+			add_to_buffer('.', buffer, len_ptr);
 		}
 		curr_digit = (num / calc_power(10, i)) % 10;
-		_putchar('0' + curr_digit);
+		add_to_buffer('0' + curr_digit, buffer, len_ptr);
 	}
 	return (digits + sign + point);
 }

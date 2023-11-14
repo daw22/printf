@@ -4,10 +4,12 @@
  * print_integer - Prints an integer using only _putchar
  * @ap: The argument pointer pointing to the int to be printed
  * @mods: The modifiers in the format string
+ * @buffer: Buffer for the chars to print
+ * @len_ptr: Pointer to an int holding the number of chars in buffer
  *
  * Return: The number of chars printed (including minus sign if there is one)
  */
-int print_integer(va_list ap, char *mods)
+int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
 	int n;
 	int digits;
@@ -23,7 +25,7 @@ int print_integer(va_list ap, char *mods)
 	sign = 0;
 	if (n < 0)
 	{
-		_putchar('-');
+		add_to_buffer('-', buffer, len_ptr);
 		sign += 1;
 		num = n * -1;
 	}
@@ -35,7 +37,7 @@ int print_integer(va_list ap, char *mods)
 	for (i = digits - 1; i >= 0; i--)
 	{
 		curr_digit = (num / calc_power(10, i)) % 10;
-		_putchar('0' + curr_digit);
+		add_to_buffer('0' + curr_digit, buffer, len_ptr);
 	}
 	return (digits + sign);
 }
