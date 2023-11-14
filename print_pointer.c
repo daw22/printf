@@ -2,6 +2,9 @@
 
 /**
  * print_nil - prints (nil)
+ * @buffer: Buffer holding the chars to print
+ * @len_ptr: Pointer to an integer holding the number of chars in buffer
+ *
  * Return: 5
  */
 int print_nil(char *buffer, int *len_ptr)
@@ -19,6 +22,8 @@ int print_nil(char *buffer, int *len_ptr)
  * print_pointer - prints memory address in hexadeciaml
  * @ap: va_list
  * @mods: format modifiers
+ * @buffer: Buffer holding the chars to print
+ * @len_ptr: Pointer to an integer holding the number of chars in buffer
  *
  * Return: number of characters printed
  */
@@ -33,7 +38,7 @@ int print_pointer(va_list ap, char *mods, char *buffer, int *len_ptr)
 	add = va_arg(ap, void *);
 	if (add == NULL)
 	{
-		return (print_nil());
+		return (print_nil(buffer, len_ptr));
 	}
 	num = (long int) add;
 	tmp = num;
