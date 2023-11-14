@@ -75,3 +75,16 @@ long calc_long_power(int base, int exp)
 	}
 	return (result);
 }
+
+/**
+ * is_number - checks if a char is a number
+ * @char: input char
+ *
+ * Return: 1 if char is a number, 0 if not
+ */
+int is_number(char c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
+}
