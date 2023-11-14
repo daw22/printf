@@ -17,11 +17,8 @@ int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 	int i;
 	unsigned int sign;
 	int curr_digit;
-	void *p;
 
 	n = va_arg(ap, int);
-	p = (void *)mods;
-	p = p;
 	sign = 0;
 	if (n < 0)
 	{
@@ -32,6 +29,11 @@ int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 	else
 	{
 		num = +n;
+		if (_strchr(mods, '+'))
+		{
+			add_to_buffer('+', buffer, len_ptr);
+			sign += 1;
+		}
 	}
 	digits = get_digits(num);
 	for (i = digits - 1; i >= 0; i--)
