@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_string_hexa - prints string with non-printable chars as \x + their hexa
+ * print_string_hexa - prints string with non-printable chars as \x+their hexa
  * @ap: va_list
  * @mod: modifiers
  * @buffer: Buffer for the chars to print
@@ -13,7 +13,7 @@ int print_string_hexa(va_list ap, char *mod, char *buffer, int *len_ptr)
 {
 	char *s;
 	char *ptr;
-	int len;
+	int len = 0;
 
 	s = va_arg(ap, char *);
 	if (s == NULL)
@@ -25,7 +25,6 @@ int print_string_hexa(va_list ap, char *mod, char *buffer, int *len_ptr)
 	{
 		free(mod);
 	}
-	len = 0;
 	while (*ptr)
 	{
 		if ((*ptr > 0 && *ptr < 32) || *ptr > 126)

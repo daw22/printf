@@ -12,7 +12,9 @@ char *_strchr(char *, char);
 char *reverse_string(char *);
 void *_realloc(void *, unsigned int, unsigned int);
 int calc_power(int, int);
+long calc_long_power(int, int);
 int get_digits(int);
+int get_long_digits(long int);
 int add_to_buffer(char, char *, int *);
 int print_buffer(char *, int);
 
@@ -42,6 +44,14 @@ int print_string_hexa(va_list, char *, char *, int *);
 int print_char_hexa(char, char *, int *);
 int null_func(va_list, char *, char *, int *);
 
+int print_long_integer(va_list, char *, char *, int *);
+int print_long_octal_hexa(va_list, char *, char *, int *);
+int print_long_unsigned_int(va_list, char *, char *, int *);
+int print_long_octal(va_list, char *, char *, int *);
+int print_long_neg_octal(long, char *, int *);
+int print_long_hexa_lower(va_list, char *, char *, int *);
+int print_long_hexa_upper(va_list, char *, char *, int *);
+int print_long_neg_hexa(long, char *, char *, int *);
 /** structs **/
 
 /**
