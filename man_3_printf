@@ -1,0 +1,85 @@
+.\" Manpage for _printf.
+.\" Contact github.com/daw22 or github.com/Zennoon to correct errors or typos.
+.TH man 8 "14 Nov 2023" "1.0" "_printf man page"
+.SH NAME
+_printf \- write formatted output to standard output
+.SH SYNOPSIS
+#include "main.h"
+
+int _printf(char *, ...)
+.SH DESCRIPTION
+_printf is a variadic function that prints the given arguments based on the
+first and mandatory argument, which contains format specifiers, and modifiers
+that dictate how the output should be formatted.
+.SH OPTIONS
+_printf does not take any options. It does take however take arguments, only
+one of which is mandatory. This argument is the first one, the format string.
+It may contain 0 or more specifiers, which indicate how the optional arguments
+are to be printed.
+
+.SH COMPILATION
+
+.P
+.RS
+$ gcc -Wall -Wextra -Werror -pedantic *.c
+.RE
+.SH SUPPORTED CONVERSION SPECIFIERS
+
+.RS
+.IT
+.B c
+- formats a char/integer argument to a single character
+
+.IT
+.B d
+- formats a number argument to an integer
+
+.IT
+.B i
+- formats a number argument to a signed integer
+
+.IT
+.B u
+- formats a number argument to an unsigned integer
+
+.IT
+.B s
+- formats a character string argument to a character string
+
+.IT
+.B b
+- formats a number argument to its binary representation
+
+.IT
+.B o
+- formats a number argument to its octal representation
+
+.IT
+.B x
+- formats a number argument to its hexadecimal representation (lowercase)
+
+.IT
+.B X
+- formats a number argument to its hexadecimal representation (UPPERCASE)
+
+.IT
+.B p
+- formats an address into its hexadecimal representation preceded by '0x'
+
+.IT
+.B r
+- formats a string argument to print its reverse
+
+.IT
+.B R
+- formats a string argument to print it encoded in rot13
+
+.IT
+.B S
+- formats a string argument such that non-printable characters are substituted
+by their hexadecimal representation (width: 2, UPPERCASE) preceded by \x
+.RE
+.SH SEE ALSO
+printf(5)
+.SH AUTHOR
+Dawit Yifru & Yunus Kedir (ALX Cohort 1-Blended students)

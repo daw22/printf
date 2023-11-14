@@ -51,7 +51,7 @@ struct funcs_and_mods get_func_and_mods(const char *format, int ind)
  */
 char *extract_mods(const char *format, int *ind_ptr)
 {
-	char valid_mods[] = "+-.l";
+	char valid_mods[] = "+-.lh";
 	char valid_specs[] = "csdbxXfuiorRpS";
 	char *curr_mods = "";
 	int i;
@@ -89,44 +89,19 @@ char *extract_mods(const char *format, int *ind_ptr)
  */
 int (*get_func(const char *format, int ind))(va_list, char *, char *, int *)
 {
-	int i = 0, (*func)(va_list, char *, char *, int *) = null_func;
-	T_and_F normal_t_and_f[] = {
-		{'c', print_char}, {'s', print_string}, {'b', print_binary},
-		{'d', print_integer}, {'i', print_octal_hexa},
-		{'x', print_hexa_lower}, {'X', print_hexa_upper},
-		{'o', print_octal}, {'f', print_float}, {'p', print_pointer},
-		{'u', print_unsigned_int}, {'r', print_rev_string},
-		{'R', print_rot13_string}, {'S', print_string_hexa}
-	};
-	T_and_F long_t_and_f[] = {
-		{'d', print_long_integer}, {'i', print_long_octal_hexa},
-		{'u', print_long_unsigned_int}, {'o', print_long_octal},
-		{'x', print_long_hexa_lower}, {'X', print_long_hexa_upper}
-	};
+	int (*func)(va_list, char *, char *, int *) = null_func;
 
 	if (format[ind - 1] == 'l')
 	{
-		while (i < 6)
-		{
-			if (format[ind] == long_t_and_f[i].spec)
-			{
-				func = long_t_and_f[i].func;
-				break;
-			}
-			i++;
-		}
+		func = get_long_func(format[ind]);
+	}
+	else if (format[ind - 1] == 'h')
+	{
+		func = get_short_func(format[ind]);
 	}
 	else
 	{
-		while (i < 14)
-		{
-			if (format[ind] == normal_t_and_f[i].spec)
-			{
-				func = normal_t_and_f[i].func;
-				break;
-			}
-			i++;
-		}
+		func = get_normal_func(format[ind]);
 	}
 	return (func);
 }

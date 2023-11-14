@@ -24,7 +24,10 @@ int _putchar(char);
 struct funcs_and_mods find_func(const char *, int);
 struct funcs_and_mods get_func_and_mods(const char *, int);
 char *extract_mods(const char *, int *);
-int (* get_func(const char *, int))(va_list, char *, char *, int *);
+int (*get_func(const char *, int))(va_list, char *, char *, int *);
+int (*get_normal_func(char))(va_list, char *, char *, int *);
+int (*get_long_func(char))(va_list, char *, char *, int *);
+int (*get_short_func(char))(va_list, char *, char *, int *);
 int print_char(va_list, char *, char *, int *);
 int print_string(va_list, char *, char *, int *);
 int print_integer(va_list, char *, char *, int *);
@@ -53,6 +56,13 @@ int print_long_neg_octal(long, char *, int *);
 int print_long_hexa_lower(va_list, char *, char *, int *);
 int print_long_hexa_upper(va_list, char *, char *, int *);
 int print_long_neg_hexa(long, char *, char *, int *);
+
+int print_short_integer(va_list, char *, char *, int *);
+int print_short_octal_hexa(va_list, char *, char *, int *);
+int print_short_unsigned_int(va_list, char *, char *, int *);
+int print_short_octal(va_list, char *, char *, int *);
+int print_short_hexa_lower(va_list, char *, char *, int *);
+int print_short_hexa_upper(va_list, char *, char *, int *);
 /** structs **/
 
 /**
