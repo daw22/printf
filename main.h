@@ -18,6 +18,7 @@ int get_long_digits(long int);
 int add_to_buffer(char, char *, int *);
 int print_buffer(char *, int);
 int is_number(char);
+void validate_format(const char *);
 
 /** prototypes **/
 int _putchar(char);

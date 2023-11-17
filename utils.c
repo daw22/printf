@@ -78,7 +78,7 @@ long calc_long_power(int base, int exp)
 
 /**
  * is_number - checks if a char is a number
- * @char: input char
+ * @c: input char
  *
  * Return: 1 if char is a number, 0 if not
  */
