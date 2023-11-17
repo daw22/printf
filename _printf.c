@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -14,7 +13,8 @@ int _printf(const char *format, ...)
 	char *buffer = malloc(sizeof(char) * 1024);
 
 	va_start(ap, format);
-	while (format[i] && format != NULL && buffer != NULL)
+	validate_format(format);
+	while (format[i] && buffer != NULL)
 	{
 		if (format[i] == '%')
 		{
@@ -35,8 +35,7 @@ int _printf(const char *format, ...)
 					bytes += add_to_buffer(format[i],
 							       buffer, &len);
 					bytes += add_to_buffer(format[i + 1],
-								   buffer,
-								   &len);
+								  buffer, &len);
 				}
 			}
 			i++;
