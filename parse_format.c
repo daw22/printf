@@ -58,7 +58,7 @@ char *extract_mods(const char *format, int *ind_ptr)
 	int j;
 
 	i = *ind_ptr;
-	while (format[i] && (_strchr(valid_mods, format[i]) || is_number(format[i])))
+	while (format[i] && _strchr(valid_mods, format[i]))
 	{
 		i++;
 	}
