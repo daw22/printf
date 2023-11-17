@@ -11,25 +11,21 @@
  */
 int print_long_octal(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
-	long int num;
-	unsigned int i, len;
+	long int num = va_arg(ap, long);
+	unsigned int i = 0, len = 0, hash = 0;
 	char octal_digits[] = "01234567";
 	char *octal;
 
-	num = va_arg(ap, long);
-	mods = mods;
-	free(mods);
-	i = 0;
-	len = 0;
-	if (num == 0)
+	if (_strchr(mods, '#'))
 	{
 		add_to_buffer('0', buffer, len_ptr);
-		return (1);
+		hash += 1;
 	}
+	free(mods);
+	if (num == 0)
+		return (add_to_buffer('0', buffer, len_ptr));
 	if (num < 0)
-	{
-		return (print_long_neg_octal(-1 * num, buffer, len_ptr));
-	}
+		return (hash + print_long_neg_octal(-1 * num, buffer, len_ptr));
 	octal = malloc(sizeof(char) * 1);
 	if (octal != NULL)
 	{
@@ -49,5 +45,5 @@ int print_long_octal(va_list ap, char *mods, char *buffer, int *len_ptr)
 		}
 	}
 	free(octal);
-	return (len);
+	return (len + hash);
 }

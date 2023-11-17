@@ -5,8 +5,12 @@
 _printf \- write formatted output to standard output
 .SH SYNOPSIS
 #include "main.h"
-
+/**
+ * _printf - A function to print formatted output
+ *
+ */
 int _printf(char *, ...)
+
 .SH DESCRIPTION
 _printf is a variadic function that prints the given arguments based on the
 first and mandatory argument, which contains format specifiers, and modifiers

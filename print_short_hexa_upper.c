@@ -11,25 +11,23 @@
  */
 int print_short_hexa_upper(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
-	short int num;
-	unsigned int i, len;
+	short int num = va_arg(ap, int);
+	unsigned int i = 0, len = 0, hash = 0;
 	char hexa_digits[] = "0123456789ABCDEF";
 	char *hexa;
 
-	num = va_arg(ap, int);
-	mods = mods;
-	free(mods);
-	i = 0;
-	len = 0;
-	if (num == 0)
+	if (_strchr(mods, '#'))
 	{
 		add_to_buffer('0', buffer, len_ptr);
-		return (1);
+		add_to_buffer('X', buffer, len_ptr);
+		hash += 2;
 	}
+	free(mods);
+	if (num == 0)
+		return (add_to_buffer('0', buffer, len_ptr));
 	if (num < 0)
-	{
-		return (print_neg_hexa(-1 * num, hexa_digits, buffer, len_ptr));
-	}
+		return (hash +
+			print_neg_hexa(-1 * num, hexa_digits, buffer, len_ptr));
 	hexa = malloc(sizeof(char) * 1);
 	if (hexa != NULL)
 	{
@@ -49,5 +47,5 @@ int print_short_hexa_upper(va_list ap, char *mods, char *buffer, int *len_ptr)
 		}
 	}
 	free(hexa);
-	return (len);
+	return (len + hash);
 }

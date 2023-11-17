@@ -33,7 +33,7 @@ char *_strchr(char *str, char c)
 	char *ptr;
 
 	ptr = str;
-	while (*ptr)
+	while (ptr != NULL && *ptr)
 	{
 		if (*ptr == c)
 		{

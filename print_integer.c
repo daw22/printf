@@ -19,7 +19,7 @@ int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 	int curr_digit;
 
 	n = va_arg(ap, int);
-	sign = 0;
+	sign = handle_space(n, mods, buffer, len_ptr);
 	if (n < 0)
 	{
 		add_to_buffer('-', buffer, len_ptr);
@@ -29,10 +29,11 @@ int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 	else
 	{
 		num = +n;
-		if (_strchr(mods, '+'))
+		if (!sign && _strchr(mods, '+'))
 		{
 			add_to_buffer('+', buffer, len_ptr);
 			sign += 1;
+			free(mods);
 		}
 	}
 	digits = get_digits(num);

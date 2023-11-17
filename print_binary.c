@@ -11,17 +11,19 @@
  */
 int print_binary(va_list ap, char *mods, char *buffer, int *len_ptr)
 {
-	unsigned int n, i, tmp, len;
+	unsigned int n, i, tmp, len, hash = 0;
 	char *str;
-	/** until handling modifiers **/
-	char c = mods[0];
-
-	c = c;
-	/** **/
 
 	n = va_arg(ap, unsigned int);
 	tmp = n;
 	len = 1;
+	if (_strchr(mods, '#'))
+	{
+		add_to_buffer('0', buffer, len_ptr);
+		add_to_buffer('b', buffer, len_ptr);
+		hash += 2;
+		free(mods);
+	}
 	if (n == 0)
 	{
 		add_to_buffer('0', buffer, len_ptr);
@@ -45,5 +47,5 @@ int print_binary(va_list ap, char *mods, char *buffer, int *len_ptr)
 			add_to_buffer(str[i], buffer, len_ptr);
 	}
 	free(str);
-	return (len);
+	return (len + hash);
 }

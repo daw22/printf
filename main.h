@@ -19,6 +19,7 @@ int add_to_buffer(char, char *, int *);
 int print_buffer(char *, int);
 int is_number(char);
 void validate_format(const char *);
+int handle_space(int, char *, char *, int *);
 
 /** prototypes **/
 int _putchar(char);
