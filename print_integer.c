@@ -34,6 +34,11 @@ int print_integer(va_list ap, char *mods, char *buffer, int *len_ptr)
 			add_to_buffer('+', buffer, len_ptr);
 			sign += 1;
 		}
+		if (_strchr(mods, ' '))
+		{
+			add_to_buffer(' ', buffer, len_ptr);
+			sign += 1;
+		}
 	}
 	digits = get_digits(num);
 	for (i = digits - 1; i >= 0; i--)

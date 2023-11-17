@@ -51,7 +51,7 @@ struct funcs_and_mods get_func_and_mods(const char *format, int ind)
  */
 char *extract_mods(const char *format, int *ind_ptr)
 {
-	char valid_mods[] = "+-.lh";
+	char valid_mods[] = "+-. lh";
 	char valid_specs[] = "csdbxXfuiorRpS";
 	char *curr_mods = "";
 	int i;
