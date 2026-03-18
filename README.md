@@ -1,5 +1,5 @@
-#printf function custom implementation
-##description
+# printf function custom implementation
+## description
 The printf function writes formatted output to stdout.
  This is a custom _printf() for learning purposes was developed by cohort #1 blended students Yunus Kedir and Dawit Yifru.
  _printf() function format string is a character string, beginning and ending in its initial shift state, if any.
